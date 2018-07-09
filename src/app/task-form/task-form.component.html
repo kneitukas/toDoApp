@@ -1,0 +1,14 @@
+<div class="form">
+  <mat-card>
+      <mat-form-field>
+          <input matInput placeholder="Tittle" [(ngModel)]='tittleValue' name="tittle" id="tittle">
+      </mat-form-field>
+  
+      <mat-form-field>
+         <textarea matInput placeholder="Description" [(ngModel)]='descValue' name="desc"  id="description"></textarea>
+      </mat-form-field>
+      
+        <button mat-raised-button (click) = 'addToList()' [disabled]='tittleValue=== ""'>Update</button>
+        <button mat-raised-button [disabled]='tittleValue === ""' class="btn">Delete</button>
+  </mat-card>
+</div>
