@@ -5,8 +5,8 @@
       <mat-panel-title>
           <h2>{{name.tittle}}</h2>
           <div>
-            <button [hidden] = "name.state === 'moved' " mat-raised-button (click) = 'moveToDone($event)'>Done</button>
-            <button mat-raised-button (click)='deleteToDoItem()'>Delete</button>
+            <button *ngIf = "disableDoneButton()" mat-raised-button (click) = 'moveToDone(name)'>Done</button>
+            <button  mat-raised-button (click)='deleteToDo(name)'>Delete</button>
           </div> 
       </mat-panel-title>
     </mat-expansion-panel-header>

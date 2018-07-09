@@ -19,21 +19,30 @@ export class AppComponent {
       description: formData.description,
       state: formData.state
     });
-
-  
-    console.log(formData)  // returns an object with correct input values
-    console.log(this.toDoList) // return an object with tittle:undefined, tittle:undefined
     
   }
-
   moveToDone (taskData: toDoInterface,i) {
-      taskData.state = 'moved';
+     
       this.doneList.unshift(this.toDoList[i])
       this.toDoList.splice(i,1)
-    
 
-    console.log(this.doneList)
+      console.log(taskData)
+  }
+
+  delete(deleteData:toDoInterface,i) {
   
+    if (deleteData.state === "added") {
+      this.toDoList.splice(i,1)
+
+    } else if (deleteData.state === "done") {
+      this.doneList.splice(i,1)
+
+      console.log('netrina')
+
+    }
+
+      
+    console.log(i)
   }
   
 }

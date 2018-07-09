@@ -9,7 +9,8 @@ import { toDoInterface } from '../toDoInterface'
 export class TaskListComponent implements OnInit {
 
  @Input() name: toDoInterface;
- @Output() done = new EventEmitter<Event>();
+ @Output() done = new EventEmitter<toDoInterface>();
+ @Output() delete = new EventEmitter<toDoInterface>()
 
 
   constructor() { }
@@ -17,13 +18,23 @@ export class TaskListComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  disableDoneButton() {
+    if (this.name.state === 'done') {
+      return false
+    } 
+    return true
+  }
 
   moveToDone(click) {
-    this.name.state = 'moved'
+    this.name.state = 'done'
     this.done.emit(click);
    
+  }
 
+  deleteToDo(click) {
+    this.delete.emit(click)
+
+    console.log(click)
   }
 
 }
