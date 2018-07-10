@@ -1,0 +1,13 @@
+
+  <mat-expansion-panel *ngFor ='let listItem of toDoList ; let i = index '>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+          <h2>{{listItem.tittle}}</h2>
+          <div>
+            <button *ngIf = "disableDoneButton(i)" mat-raised-button (click) = 'moveToDone(listItem)'>Done</button>
+            <button  mat-raised-button (click)='deleteToDo(i)'>Delete</button>
+          </div> 
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>{{listItem.description}}</p>
+  </mat-expansion-panel>

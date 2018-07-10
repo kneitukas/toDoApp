@@ -1,23 +1,4 @@
-<mat-toolbar><h1>To Do App</h1></mat-toolbar>
-<div class="container">
-  <mat-card>
-      <h2 class="tittle">To Do list!</h2>
-      <task-list *ngFor ='let element of toDoList; let i = index'
-      [name] = "element"
-      (done) = 'moveToDone($event,i)'
-      (delete) = 'delete($event,i)'
-      ></task-list>
-  </mat-card>
- 
-  <task-form (toDo) = "newToDo($event)"></task-form>
-  <mat-card>
-      <h2 class="tittle">Done List!</h2>
-      <task-list *ngFor ='let name of doneList' (delete) = 'delete($event,i)' [name] = "name" ></task-list>
-  </mat-card>
-  
-</div>
-
-
+<to-do></to-do>
 
 
 

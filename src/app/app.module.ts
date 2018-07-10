@@ -3,16 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
+
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material';
-import { TaskFormComponent } from './task-form/task-form.component';
-import { TaskListComponent } from './task-list/task-list.component';
+import { TaskFormComponent } from './to-do/task-form/task-form.component';
+import { TaskListComponent } from './to-do/task-list/task-list.component';
+import { ToDoComponent } from './to-do/to-do.component';
+import { ToDoFilterPipe } from './to-do/todo-filter.pipe'
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskFormComponent,
-    TaskListComponent
+    TaskListComponent,
+    ToDoComponent,
+    ToDoFilterPipe
+    
   ],
   imports: [
     BrowserModule,

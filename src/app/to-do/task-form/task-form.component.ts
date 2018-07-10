@@ -1,5 +1,5 @@
 import { Component, OnInit,EventEmitter, Output } from '@angular/core';
-import { toDoInterface } from '../toDoInterface';
+import { toDoInterface } from '../../toDoInterface';
 
 
 @Component({
