@@ -8,29 +8,25 @@ import { toDoInterface } from '../toDoInterface'
 })
 export class ToDoComponent implements OnInit {
 
-  toDoList : toDoInterface[] = []
+  toDoList: toDoInterface[] = []
   added = 'added';
   done = 'done'
- 
+
   constructor() { }
 
   ngOnInit() {
   }
 
   newToDo (formData: toDoInterface) {
-  
-    this.toDoList.push({
-      tittle: formData.tittle,
-      description: formData.description,
-      state: formData.state
- 
-    });
+
+    this.toDoList.push(formData);
+    console.log(this.toDoList);
 
   }
-    
+
   // }
   // moveToDone (taskData: toDoInterface,i) {
-     
+
   //     this.doneList.unshift(this.toDoList[i])
   //     this.toDoList.splice(i,1)
 
@@ -38,7 +34,7 @@ export class ToDoComponent implements OnInit {
   // }
 
   // delete(deleteData:toDoInterface,i) {
-  
+
   //   if (deleteData.state === "added") {
   //     this.toDoList.splice(i,1)
 
@@ -49,8 +45,8 @@ export class ToDoComponent implements OnInit {
 
   //   }
 
-      
+
   //   console.log(i)
-  
+
 
 }

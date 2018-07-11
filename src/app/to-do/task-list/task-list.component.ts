@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { toDoInterface } from '../../toDoInterface'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { toDoInterface } from '../../toDoInterface';
 
 @Component({
   selector: 'task-list',
@@ -9,36 +9,27 @@ import { toDoInterface } from '../../toDoInterface'
 export class TaskListComponent implements OnInit {
 
 
-   @Input()toDoList : toDoInterface[] = []
-   @Input()state : string;
-   
+   @Input()toDoList: toDoInterface[] = [];
+   @Input()state: string;
+
   constructor() { }
 
   ngOnInit() {
-    this.toDoList.push({tittle:'1', description:'sdsdsd',state:'added'})
+    /*this.toDoList.push({tittle:'1', description:'sdsdsd',state:'added'})
     this.toDoList.push({tittle:'2', description:'sdsdsd',state:'done'})
-    this.toDoList.push({tittle:'2', description:'sdsdsd',state:'done'})
-  
+    this.toDoList.push({tittle:'2', description:'sdsdsd',state:'done'})*/
+
   }
 
   moveToDone(listItem) {
-    listItem.state = 'done'
-    this.toDoList.push(listItem)
-   console.log(listItem)
+    this.toDoList[this.toDoList.indexOf(listItem)].state = 'done';
   }
 
-  disableDoneButton(i) {
-    if (this.toDoList[i].state === 'done') {
-      return false
-    } 
-    return true
-  }
 
- 
-  // deleteToDo(click) {
-  //   this.delete.emit(click)
+   deleteToDo(listItem) {
+     this.toDoList[this.toDoList.indexOf(listItem)].state = 'deleted';
 
-  //   console.log(click)
-  // }
+     console.log(listItem);
+   }
 
 }

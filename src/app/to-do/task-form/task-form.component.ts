@@ -1,4 +1,4 @@
-import { Component, OnInit,EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { toDoInterface } from '../../toDoInterface';
 
 
@@ -8,13 +8,13 @@ import { toDoInterface } from '../../toDoInterface';
   styleUrls: ['./task-form.component.scss']
 })
 export class TaskFormComponent implements OnInit {
-  
+
  @Output() toDo = new EventEmitter<toDoInterface>();
 
 
   tittleValue = '';
   descValue = '';
- 
+
 
   constructor() { }
 
@@ -23,15 +23,15 @@ export class TaskFormComponent implements OnInit {
 
 
   addToList () {
-   
-    this.toDo.emit({tittle:this.tittleValue,description:this.descValue,state:'added'})
+
+    this.toDo.emit({tittle: this.tittleValue, description: this.descValue, state: 'added'});
 
     this.tittleValue = '';
     this.descValue = '';
-  
-    
-    console.log(this.descValue)
+
+
+    console.log(this.descValue);
   }
 
-  
+
 }
