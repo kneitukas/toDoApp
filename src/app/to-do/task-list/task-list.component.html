@@ -1,12 +1,22 @@
 
+<<<<<<< HEAD
   <mat-expansion-panel  *ngFor ='let listItem of toDoList | toDoFilter:state; let i = index '>
+=======
+  <mat-expansion-panel *ngFor ='let listItem of toDoList | toDoFilter: state; let i = index '>
+>>>>>>> 6066f9c2f7459b293619bc4401d0da2f59d12a0b
     <mat-expansion-panel-header>
       <mat-panel-title>
           <h2>{{listItem.tittle}}</h2>
           <div>
+<<<<<<< HEAD
             <button *ngIf = "disableDoneButton(state)" mat-raised-button (click) = 'moveToDone(listItem,i)'>Done</button>
             <button  mat-raised-button (click)='deleteToDo(i)'>Delete{{i}}</button>
           </div> 
+=======
+            <button *ngIf = "listItem.state === 'added'" mat-raised-button (click) = 'moveToDone(listItem)'>Done</button>
+            <button  mat-raised-button (click)='deleteToDo(listItem)'>Delete</button>
+          </div>
+>>>>>>> 6066f9c2f7459b293619bc4401d0da2f59d12a0b
       </mat-panel-title>
     </mat-expansion-panel-header>
     <p>{{listItem.description}}</p>
