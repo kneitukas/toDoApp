@@ -25,7 +25,7 @@ export class ToDoComponent implements OnInit {
       state: formData.state
  
     });
-
+    console.log(this.toDoList)
   }
     
   // }

@@ -9,7 +9,9 @@ import { MaterialModule } from './material';
 import { TaskFormComponent } from './to-do/task-form/task-form.component';
 import { TaskListComponent } from './to-do/task-list/task-list.component';
 import { ToDoComponent } from './to-do/to-do.component';
-import { ToDoFilterPipe } from './to-do/todo-filter.pipe'
+import { ToDoFilterPipe } from './to-do/todo-filter.pipe';
+import { MemoryCardsComponent } from './memory-cards/memory-cards.component';
+import { NavigationComponent } from './navigation/navigation.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ToDoFilterPipe } from './to-do/todo-filter.pipe'
     TaskFormComponent,
     TaskListComponent,
     ToDoComponent,
-    ToDoFilterPipe
+    ToDoFilterPipe,
+    MemoryCardsComponent,
+    NavigationComponent
     
   ],
   imports: [
