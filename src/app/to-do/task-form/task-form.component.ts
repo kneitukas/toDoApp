@@ -13,10 +13,6 @@ export class TaskFormComponent implements OnInit {
 
   tittleValue = '';
   descValue = '';
-<<<<<<< HEAD
-=======
-
->>>>>>> 6066f9c2f7459b293619bc4401d0da2f59d12a0b
 
  
   constructor() { }
@@ -25,12 +21,6 @@ export class TaskFormComponent implements OnInit {
   }
 
   addToList () {
-<<<<<<< HEAD
-    this.toDo.emit({tittle:this.tittleValue,description:this.descValue,state:'added'})
-    this.tittleValue = '';
-    this.descValue = '';
-  }
-=======
 
     this.toDo.emit({tittle: this.tittleValue, description: this.descValue, state: 'added'});
 
@@ -42,5 +32,4 @@ export class TaskFormComponent implements OnInit {
   }
 
 
->>>>>>> 6066f9c2f7459b293619bc4401d0da2f59d12a0b
 }

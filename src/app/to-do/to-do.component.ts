@@ -18,21 +18,10 @@ export class ToDoComponent implements OnInit {
   }
 
   newToDo (formData: toDoInterface) {
-<<<<<<< HEAD
-  
-    this.toDoList.push({
-      tittle: formData.tittle,
-      description: formData.description,
-      state: formData.state
- 
-    });
-    console.log(this.toDoList)
-=======
 
     this.toDoList.push(formData);
     console.log(this.toDoList);
 
->>>>>>> 6066f9c2f7459b293619bc4401d0da2f59d12a0b
   }
 
   // }
