@@ -1,17 +1,8 @@
 
-<div class="container">
-
-  <mat-card>
-      <h2 class="tittle">To Do list!</h2>
-      <task-list [state]='added' [toDoList]='toDoList'></task-list>
-  </mat-card>
-
-  <task-form (toDo) = "newToDo($event)"></task-form>
-
-  <mat-card>
-      <h2 class="tittle">Done List!</h2>
-      <task-list [state] = 'done' [toDoList] = 'toDoList'></task-list>
-  </mat-card>
-
+<div class="container" [@itemAnim]>
+    <task-form (toDo) = "newToDo($event)"></task-form>
+    <task-list  [toDoList]='toDoList'></task-list>
 </div>
+    
+
 

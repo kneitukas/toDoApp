@@ -1,0 +1,44 @@
+#canvas {
+    display: none;
+}
+
+video {
+    width: 100%;
+}
+
+
+mat-dialog-content {
+    position: relative;
+}
+
+mat-dialog-actions {
+    justify-content: center;
+}
+
+#captureBtn{
+    position: absolute;
+    bottom: 10px;
+    left: 47%;
+    right: 55%;
+    margin: 0 auto;
+    width: 0;
+    padding: 0;
+    border: 0;
+}
+
+mat-icon {
+    color: white;
+    font-size: 3em;
+    height: inherit;
+    width: inherit;
+    cursor: pointer;
+}
+
+
+form {
+    margin-top:15px;
+
+    mat-form-field {
+        display: block;
+    }
+}

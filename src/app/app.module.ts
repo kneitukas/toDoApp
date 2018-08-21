@@ -12,11 +12,17 @@ import { TaskListComponent } from './to-do/task-list/task-list.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import { ToDoFilterPipe } from './to-do/todo-filter.pipe';
 import { MemoryCardsComponent } from './memory-cards/memory-cards.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotesComponent } from './notes/notes.component';
-import { DialogComponent } from './notes/dialog/dialog.component';
+import { CameraDialogComponent } from './notes/camera-dialog/camera-dialog.component';
+import { AudioDialogComponent } from './notes/audio-dialog/audio-dialog.component';
+import { NotesInputComponent } from './notes/notes-input/notes-input.component';
+import { NotesDialogComponent } from './notes/notes-dialog/notes-dialog.component';
+import { CustomIconService } from './custom-icon.service'
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { DoneListComponent } from './to-do/task-list/done-list/done-list.component';
 
 
 
@@ -36,27 +42,35 @@ const appRoutes : Routes = [
     ToDoComponent,
     ToDoFilterPipe,
     MemoryCardsComponent,
-    NavigationComponent,
     SchedulerComponent,
     MenuComponent,
     NotesComponent,
-    DialogComponent
-    
-
+    CameraDialogComponent,
+    AudioDialogComponent,
+    NotesInputComponent,
+    NotesDialogComponent,
+    DoneListComponent,
+  
    
-    
+
+  
+   
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     
   ],
-  providers: [],
+  providers: [CustomIconService],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent]
+  entryComponents: [CameraDialogComponent,NotesDialogComponent]
 })
 export class AppModule { }

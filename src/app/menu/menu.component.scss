@@ -10,22 +10,26 @@
     margin: 0 auto;
     height: 100vh;
     padding: 0 30px;
+   
 
     .menu-item {
         // padding: 50px;
         // cursor: pointer;
-        background-color: lightblue;
+        
 
        
             a{
+                border-radius: 5px;
                 padding: 50px;
                 display: block;
                 font-size: 2rem;
-                color: black;
+                color: white;
+                background-color:cornflowerblue;
+                opacity: 0.9;
             }
 
             a:hover  {
-                border: 2px red solid;
+                opacity: 1;
             }
         
     }

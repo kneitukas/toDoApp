@@ -1,10 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { toDoInterface } from '../toDoInterface'
+import { Component, OnInit} from '@angular/core';
+import { toDoInterface } from '../toDoInterface';
+import { trigger, style, transition, animate, group } from '@angular/animations';
+
+  
 
 @Component({
   selector: 'to-do',
   templateUrl: './to-do.component.html',
-  styleUrls: ['./to-do.component.scss']
+  styleUrls: ['./to-do.component.scss'],
+  animations: [
+    trigger('itemAnim', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate(350)
+      ]),
+      transition(':leave', [
+        group([
+          animate('0.2s ease', style({
+            transform: 'translate(150px,25px)'
+          })),
+          animate('0.5s 0.2s ease', style({
+            opacity: 0
+          }))
+        ])
+      ])
+    ])
+  ]
 })
 export class ToDoComponent implements OnInit {
 
@@ -15,38 +36,13 @@ export class ToDoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.toDoList)
   }
 
   newToDo (formData: toDoInterface) {
-
-    this.toDoList.push(formData);
+    // this.toDoList.push(formData);
+    this.toDoList = [...this.toDoList, formData];
     console.log(this.toDoList);
-
   }
-
-  // }
-  // moveToDone (taskData: toDoInterface,i) {
-
-  //     this.doneList.unshift(this.toDoList[i])
-  //     this.toDoList.splice(i,1)
-
-  //     console.log(taskData)
-  // }
-
-  // delete(deleteData:toDoInterface,i) {
-
-  //   if (deleteData.state === "added") {
-  //     this.toDoList.splice(i,1)
-
-  //   } else if (deleteData.state === "done") {
-  //     this.doneList.splice(i,1)
-
-  //     console.log('netrina')
-
-  //   }
-
-
-  //   console.log(i)
-
 
 }

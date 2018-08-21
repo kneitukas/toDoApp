@@ -1,12 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
+    font-family: roboto,sans-serif;
+    font-style: italic;
     margin: 0;
     padding: 0;
+}
+
+*:focus {
+    outline: none;
 }
 
 * {
     list-style-type: none;
     text-decoration: none;
 }
+
+#notes .mat-list-item-content {
+    align-items: baseline;
+    padding: 10px 15px;
+    justify-content: space-between;
+}
+
+.mat-tab-body-wrapper {
+    text-align: center !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: cornflowerblue; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary {
+    background-color: darkslategray !important;
+}
+
+th.mat-header-cell {
+    text-align: center !important;
+}
+
+td.mat-cell {
+    text-align: center !important;
+}
+
+
+
+
+
+

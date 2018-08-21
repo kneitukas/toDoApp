@@ -1,35 +1,72 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, ViewChild, AfterContentInit, DoCheck } from '@angular/core';
 import { toDoInterface } from '../../toDoInterface';
+import { CustomIconService } from '../../custom-icon.service';
+import { MatTable } from '@angular/material';
+import { DataSource } from '@angular/cdk/table';
+import { MatTableDataSource} from '@angular/material'
+import { trigger, style, transition, animate, group } from '@angular/animations';
+
 
 @Component({
   selector: 'task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
-})
-export class TaskListComponent implements OnInit {
+  styleUrls: ['./task-list.component.scss'],
+  animations: [
+    trigger('itemAnim', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate(350)
+      ]),
+      transition(':leave', [
+        group([
+          animate('0.2s ease', style({
+            transform: 'translate(150px,25px)'
+          })),
+          animate('0.5s 0.2s ease', style({
+            opacity: 0
+          }))
+        ])
+      ])
+    ])
+  ]
 
+})
+export class TaskListComponent implements OnInit,OnChanges {
+  
+  columnsToDisplay = ['tittle', 'description','deadline','priority','date','state','done'];
 
    @Input()toDoList: toDoInterface[] = [];
-   @Input()state: string;
+   doneList:any[] = []
+   dataSource = new MatTableDataSource<any>(this.toDoList);
+   data: toDoInterface[] = this.toDoList;
+   today: number = Date.now();
+  
 
-  constructor() { }
+    constructor(private customIcon:CustomIconService) { 
+
+  }
+
+  ngOnChanges() {
+    this.dataSource.data = this.toDoList;
+  }
 
   ngOnInit() {
-    /*this.toDoList.push({tittle:'1', description:'sdsdsd',state:'added'})
-    this.toDoList.push({tittle:'2', description:'sdsdsd',state:'done'})
-    this.toDoList.push({tittle:'2', description:'sdsdsd',state:'done'})*/
-
+    this.customIcon.init(); 
   }
 
-  moveToDone(listItem) {
-    this.toDoList[this.toDoList.indexOf(listItem)].state = 'done';
+  moveToDone(i) {
+    this.toDoList.splice(i,1);
+    this.doneList =[...this.doneList,i];
+    this.dataSource.data = this.toDoList;
+    console.log(this.doneList)
+    console.log(this.toDoList)
   }
 
-
-   deleteToDo(listItem) {
-     this.toDoList[this.toDoList.indexOf(listItem)].state = 'deleted';
-
-     console.log(listItem);
-   }
+   deleteToDo(i) {
+     this.toDoList.splice(i,1);
+     this.dataSource.data = this.toDoList;
+     console.log(this.toDoList)
+   
+   } 
 
 }

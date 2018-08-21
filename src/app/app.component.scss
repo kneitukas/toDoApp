@@ -4,5 +4,14 @@ mat-drawer-container {
 }
 
 mat-drawer {
-    background-color: lightcyan;
+    background-color: cornflowerblue;
+    a {
+        font-weight: 600;
+        color: white;
+    }
 }
+
+mat-drawer-content {
+    height: 100vh !important;
+}
+

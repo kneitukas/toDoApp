@@ -1,13 +1,59 @@
 
-  <mat-expansion-panel *ngFor ='let listItem of toDoList | toDoFilter: state; let i = index '>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-          <h2>{{listItem.tittle}}</h2>
-          <div>
-            <button *ngIf = "listItem.state === 'added'" mat-raised-button (click) = 'moveToDone(listItem)'>Done</button>
-            <button  mat-raised-button (click)='deleteToDo(listItem)'>Delete</button>
-          </div>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <p>{{listItem.description}}</p>
+
+  <mat-card>
+    <table mat-table [dataSource]='dataSource' multiTemplateDataRows >
+
+      <ng-container matColumnDef="tittle">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let task"> {{task.tittle}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let task"> {{task.description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="deadline">
+            <th mat-header-cell *matHeaderCellDef> Days Left </th>
+            <td mat-cell *matCellDef="let task"> {{task.deadline}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="priority">
+            <th mat-header-cell *matHeaderCellDef> Priority </th>
+            <td mat-cell *matCellDef="let task"> {{task.priority}} </td>
+          </ng-container>
+
+          
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Added </th>
+              <td mat-cell *matCellDef="let task"> {{today | date}} </td>
+            </ng-container>
+
+          <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let task; let i = index"> <button  (click)='deleteToDo(i)' mat-icon-button><mat-icon>delete</mat-icon></button></td>
+          </ng-container>
+
+          <ng-container matColumnDef="done">
+              <th mat-header-cell *matHeaderCellDef>Done</th>
+              <td mat-cell *matCellDef="let task; let i = index"> <button (click)='moveToDone(task)' mat-icon-button><mat-icon>done</mat-icon></button></td>
+            </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+          <tr [@itemAnim] mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+    </table>
+  </mat-card>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+                  <h2>Done List</h2>
+          </mat-panel-title>  
+      </mat-expansion-panel-header>
+      <mat-panel-description>
+          <ng-container >
+                  <done-list id="doneList"  [doneList] = 'doneList'></done-list>
+          </ng-container>    
+      </mat-panel-description>
   </mat-expansion-panel>
+

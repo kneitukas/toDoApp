@@ -1,65 +1,83 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '../../../node_modules/@angular/material';
-import {DialogComponent} from '../notes/dialog/dialog.component';
+import { CameraDialogComponent } from './camera-dialog/camera-dialog.component';
 import { filter } from 'rxjs/operators';
-
+import { DataService } from './data.service';
+import { NotesDialogComponent } from './notes-dialog/notes-dialog.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { trigger, style, transition, animate, group } from '@angular/animations';
 
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss']
+  styleUrls: ['./notes.component.scss'],
+  providers : [DataService],
+  animations: [
+    trigger('itemAnim', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate(350)
+      ]),
+      transition(':leave', [
+        group([
+          animate('0.2s ease', style({
+            transform: 'translate(150px,25px)'
+          })),
+          animate('0.5s 0.2s ease', style({
+            opacity: 0
+          }))
+        ])
+      ])
+    ])
+  ]
 })
 export class NotesComponent implements OnInit {
+  state = false;
+  notes = [];
+  images = [];
+  audioArray = [];
+  currentDay : string = new Date().toDateString();
 
-  imgArray = []
-  files = []
-
-
-  dialogRef : MatDialogRef<DialogComponent>;
-
-  constructor(private dialog:MatDialog) { }
+  cameraDialogRef : MatDialogRef<CameraDialogComponent>
+  notesDialogRef : MatDialogRef<NotesDialogComponent>
+  constructor(private dialog:MatDialog,
+              private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
 
+    openNotesDialog() {
+      this.notesDialogRef = this.dialog.open(NotesDialogComponent, {
+        hasBackdrop:true,
+      })
 
-    openDialog(file?) {
-      this.dialogRef = this.dialog.open(DialogComponent, {
-        width: '500px',
-        hasBackdrop: false,
-        data: {
-          filename: file? file.name: ''
-        }
-      });
-  
-      this.dialogRef
+      this.notesDialogRef
       .afterClosed()
-      .pipe(filter(name => name))
-      .subscribe(name => {
-        if (file) {
-          const index = this.files.findIndex(f => f.name == file.name);
-          if(index !== -1) {
-            this.files[index] = { name,content: file.content }
+      .pipe(filter(result => result !== undefined))
+      .subscribe(result => {
+          if(result.note) {
+            this.notes.push(result)
+           
+          } else if (result.image) {
+            this.images.push(result)
+          } else {
+            this.audioArray.push(result)
           }
-        } else {
-          this.files.push({ name,content: ''})
-        }
-      });
-   
-    } 
+          console.log(result)
+          console.log(this.audioArray)
+        }); 
+    }
 
     deleteNote(i) {
-      this.files.splice(i,1)
+      this.notes.splice(i,1)
     }
 
-    clearAll() {
-      this.files.length = 0;
-      this.imgArray.length = 0;
+    deleteImage(i) {
+      this.images.splice(i,1);
     }
 
-    onFileSelected(event) {
-      this.imgArray.push(event.target.files[0])
-      console.log(this.imgArray)
+    deleteAudio(i) {
+      this.audioArray.splice(i,1)
     }
 
 }

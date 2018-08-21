@@ -1,17 +1,82 @@
+mat-card {
+    // background-color: cornflowerblue;
+}
+
+form{
+    position: relative;
+    // display: flex;
+    width: 80%;
+    margin:0 auto;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-form-field {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#control {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px 0;
+}
+
+#deadline {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 45%;
+
+    p{
+        margin: 0;
+    }
+}
+
+mat-slider {
+    color: cornflowerblue;
+}
+
+#priority {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+
+    mat-radio-group {
+        margin-top: 10px;
+
+        mat-radio-button {
+            margin:10px !important;
+        }
+    }
+}
+
+/deep/ .mat-form-field-underline {
+    // display: none;
+ }
+
+ button {
+     display: block;
+     margin: 0 auto;
+ }
+
+button:disabled {
+    opacity: 0.4!important;
+ }
+
+mat-icon {
+    font-size: 2em; 
+}
+
 mat-form-field {
     display: block;
 }
-
-
-#tittle {
-    
+input {
     width: 100%;
-    display: block;
-    padding: 10px;
 }
 
-#description {
-    display: block;
-    width: 100%;
-    padding: 10px;
-}
+

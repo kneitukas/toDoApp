@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { toDoInterface } from '../../toDoInterface';
+import { CustomIconService } from '../../custom-icon.service';
 
 
 @Component({
@@ -13,22 +14,20 @@ export class TaskFormComponent implements OnInit {
 
   tittleValue = '';
   descValue = '';
+  priority:string;
+  deadline:number = 1;
 
- 
-  constructor() { }
+  constructor(private customIcon:CustomIconService) {
+   }
 
   ngOnInit() {
+    this.customIcon.init()
   }
 
   addToList () {
-
-    this.toDo.emit({tittle: this.tittleValue, description: this.descValue, state: 'added'});
-
+    this.toDo.emit({tittle: this.tittleValue, description: this.descValue, priority:this.priority,deadline:this.deadline, state: 'added'});
     this.tittleValue = '';
     this.descValue = '';
-
-
-    console.log(this.descValue);
   }
 
 

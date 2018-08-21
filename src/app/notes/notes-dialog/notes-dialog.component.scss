@@ -1,0 +1,68 @@
+mat-form-field {
+    width: 100%;
+}
+
+mat-panel-title {
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+mat-tab-group {
+    max-width: 500px;
+    width: 500px;
+   
+}
+
+form {
+    margin-top: 20px !important;
+}
+
+.mat-dialog-container {
+    padding-top: 0px !important;
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0;
+    margin-bottom: 1px;
+
+    .mat-raised-button {
+        background: rgba($color: #fff, $alpha: 0.8) !important;
+    }
+}
+
+#captureBtn{
+    position: absolute;
+    bottom: 10px;
+    left: 47%;
+    right: 55%;
+    margin: 0 auto;
+    width: 0;
+    padding: 0;
+    border: 0;
+   
+}
+
+mat-icon {
+    color: darkslategray !important;
+    color: rgba($color: #fff, $alpha: 1);
+    font-size: 2em;
+    height: inherit;
+    width: inherit;
+    cursor: pointer;
+}
+
+#captureIcon {
+    font-size: 3em;
+}
+
+audio {
+    margin-top: 20px;
+}
+
+
+
+
+

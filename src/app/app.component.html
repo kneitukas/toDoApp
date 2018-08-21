@@ -1,23 +1,16 @@
-<!-- 
-  
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-    <mat-sidenav-content>
-          
-        </mat-sidenav-content>
-  </mat-sidenav-container> -->
+
 
 
   <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" closed >
+        <mat-drawer mode="side" opened >
             <mat-list>
                     <mat-list-item> <a routerLink = '/'>Home</a></mat-list-item>
-                    <mat-list-item> <a routerLink = '/to-do'>To Do App</a></mat-list-item>
-                    <mat-list-item> <a routerLink = '/scheduler'>Scheduler</a></mat-list-item>
+                    <mat-list-item > <a routerLink = '/to-do'>To Do App</a></mat-list-item>
+                    <mat-list-item> <a routerLink = '/notes'>Notes</a></mat-list-item>
             </mat-list>
         </mat-drawer>
         <mat-drawer-content>
-                <router-outlet></router-outlet>
+                <router-outlet [@itemAnim] ></router-outlet>
         </mat-drawer-content>
       </mat-drawer-container>
       

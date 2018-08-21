@@ -1,32 +1,49 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>
-                <h1>Notes</h1>
-        </mat-card-title>
-    </mat-card-header>
-     
-    <mat-card-content>      
-    <li [matMenuTriggerFor]="menu" id="notes" *ngFor="let file of files; let i = index">
-        {{file.name}}
-        <!-- {{imgArray.name}} -->
-        <mat-menu  #menu="matMenu">
-        <ng-template matMenuContent>
-            <button (click) = 'openDialog(file)' mat-menu-item>Edit</button>
-            <button (click) = 'deleteNote(i)' mat-menu-item>Delete</button>
-        </ng-template>
-        </mat-menu>
-    </li>
-    <li *ngFor='let image of imgArray; let i = index'>
-        <img width='300px' [src]="'/assets/img/' + image.name"  alt="">
-    </li>
-    <button  id="clr" mat-raised-button (click) = 'clearAll()'>Clear All</button>
-    </mat-card-content>
-    <mat-card-footer >
-      <button id="footerBtn" mat-button (click)="openDialog()">Take a note:</button>
-         <div>
-            <label for="image_uploads"><mat-icon>camera</mat-icon></label>
-            <input type="file" accept="image/*"  id="image_uploads" (change)="onFileSelected($event)">
-         </div>
-    </mat-card-footer>
+
+
+<mat-card [@itemAnim] >
+    <mat-card-content> 
+        <button id="primaryBtn" mat-raised-button color="primary" (click)='openNotesDialog()'>New Note</button>   
+      <mat-list id="notes">    
+          <li *ngFor='let note of notes; let i = index' id='note'>
+              <div class="titleDesc">
+                  <h4>{{note.note.title}}</h4>
+                  <p>{{note.note.description}}</p>
+                  <div class="currentDay">
+                    <p>{{currentDay}}</p>
+                    <button class="clrButton" mat-icon-button (click) = 'deleteNote(i)'>
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+          </li>
+      </mat-list>
+    
+      <mat-list id="images">
+          <li *ngFor='let img of images; let i =index ' id='image'>
+              <img  src="{{img.image}}" alt="">
+              <div class="titleDesc">
+                  <h4>{{img.desc.title}}</h4>
+                  <p>{{img.desc.description}}</p>
+                  <div class="currentDay">
+                    <p>{{currentDay}}</p>
+                    <button class="clrButton" mat-icon-button (click) = 'deleteImage(i)'>
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+          </li>
+      </mat-list>
+
+      <mat-list id="audio">
+          <li *ngFor='let audio of audioArray; let i =index '>
+
+              <audio  id="audio" controls >
+                  <source id="source" [src]="domSanitizer.bypassSecurityTrustUrl(audio) 
+                  " type="audio/ogg"/>
+              </audio>
+          </li>
+          
+      </mat-list>   
+</mat-card-content>
 </mat-card>
 

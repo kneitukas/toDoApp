@@ -13,6 +13,13 @@ import {
   MatSidenavModule,
   MatListModule,
   MatMenuModule,
+  MatTabsModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSliderModule,
+  MatTableModule
   
   
 
@@ -37,6 +44,13 @@ import { NgModule } from '@angular/core';
      MatSidenavModule,
      MatListModule,
      MatMenuModule,
+     MatTabsModule,
+     MatStepperModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
+     MatRadioModule,
+     MatSliderModule,
+     MatTableModule
     
     ]
 })
