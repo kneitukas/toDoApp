@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '../../../node_modules/@angular/material';
-import { CameraDialogComponent } from './camera-dialog/camera-dialog.component';
 import { filter } from 'rxjs/operators';
 import { DataService } from './data.service';
 import { NotesDialogComponent } from './notes-dialog/notes-dialog.component';
@@ -38,7 +37,7 @@ export class NotesComponent implements OnInit {
   audioArray = [];
   currentDay : string = new Date().toDateString();
 
-  cameraDialogRef : MatDialogRef<CameraDialogComponent>
+
   notesDialogRef : MatDialogRef<NotesDialogComponent>
   constructor(private dialog:MatDialog,
               private domSanitizer: DomSanitizer) { }
@@ -57,7 +56,7 @@ export class NotesComponent implements OnInit {
       .subscribe(result => {
           if(result.note) {
             this.notes.push(result)
-           
+
           } else if (result.image) {
             this.images.push(result)
           } else {
@@ -65,7 +64,7 @@ export class NotesComponent implements OnInit {
           }
           console.log(result)
           console.log(this.audioArray)
-        }); 
+        });
     }
 
     deleteNote(i) {

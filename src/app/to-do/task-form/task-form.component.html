@@ -6,8 +6,8 @@
 
         <mat-form-field>
             <input matInput autocomplete="off" placeholder="Description" [(ngModel)]='descValue' name="desc"  id="description">
-        </mat-form-field> 
-        
+        </mat-form-field>
+
         <div id="control">
           <div id="deadline">
             <label for="deadline">Days To Finish</label>
@@ -16,13 +16,12 @@
             name='deadline'
             [(ngModel)]='deadline'
             thumbLabel
-            [displayWith]="formatLabel"
             displayValue='string | number'
             min="1"
             max="100"></mat-slider>
             <p>{{deadline}}</p>
           </div>
-        
+
           <div id="priority">
             <label for="priority">Priority</label>
             <mat-radio-group color='primary' name='priority' [(ngModel)]='priority' >
@@ -31,9 +30,9 @@
               <mat-radio-button value="Low">Low</mat-radio-button>
             </mat-radio-group>
           </div>
-        </div>     
-        <button  mat-raised-button id="addNote" (click)='addToList()' [disabled]='tittleValue=== ""'>Submit</button>         
-    </form>   
+        </div>
+        <button  mat-raised-button id="addNote" (click)='addToList()' [disabled]='tittleValue=== ""'>Submit</button>
+    </form>
 </mat-card>
 
 

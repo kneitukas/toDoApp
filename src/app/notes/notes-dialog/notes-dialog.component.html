@@ -5,7 +5,7 @@
                         <button mat-icon-button>
                    <mat-icon>notes</mat-icon>
                  </button>
-             </ng-template> 
+             </ng-template>
             <ng-template matTabContent>
                 <form  [formGroup]="form" (ngSubmit)="submit(form)">
                     <mat-form-field>
@@ -17,9 +17,9 @@
                     <mat-dialog-actions>
                         <button mat-raised-button type="submit">Add</button>
                         <button mat-raised-button type="button" mat-dialog-close>Cancel</button>
-                    </mat-dialog-actions>          
+                    </mat-dialog-actions>
                 </form>
-            </ng-template>    
+            </ng-template>
         </mat-tab>
 <!-- / Notes -->
 
@@ -29,7 +29,7 @@
                        <button (click)="initCamera()" mat-icon-button>
                   <mat-icon>camera</mat-icon>
                 </button>
-            </ng-template> 
+            </ng-template>
             <div>
                 <video [hidden]="!captureState" #videoElement ></video>
                 <button id="captureBtn" [hidden]="!captureState"  (click)="capture(canvas)">
@@ -37,7 +37,7 @@
                 </button>
                 <canvas [hidden]='captureState' #canvas id="canvas" width="480" height="480"></canvas>
             </div>
-             
+
                     <form [hidden]="captureState" [formGroup]="form" (ngSubmit)="submitImage(form)">
                     <mat-form-field>
                         <input matInput formControlName="title" autocomplete="off" placeholder="Title">
@@ -48,10 +48,10 @@
                     <mat-dialog-actions>
                         <button mat-raised-button type="submit">Add</button>
                         <button mat-raised-button type="button" mat-dialog-close>Cancel</button>
-                    </mat-dialog-actions>          
-                </form>               
+                    </mat-dialog-actions>
+                </form>
         </mat-tab>
-   <!-- /Camera -->     
+   <!-- /Camera -->
 
    <!-- Audio -->
         <mat-tab>
@@ -61,10 +61,7 @@
                   </button>
             </ng-template>
             <audio #audioPlayer controls (click)='initAudio()'></audio>
-            <button mat-button (click)='startRecording($event)'>Start Recording</button>
-            <button mat-button (click)='stopRecording($event)'>Stop Recording</button>
-
             <button mat-button (click)='submitAudio()'>Submit</button>
         </mat-tab>
       </mat-tab-group>
- 
+

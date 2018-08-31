@@ -1,9 +1,9 @@
 
 
 <mat-card [@itemAnim] >
-    <mat-card-content> 
-        <button id="primaryBtn" mat-raised-button color="primary" (click)='openNotesDialog()'>New Note</button>   
-      <mat-list id="notes">    
+    <mat-card-content>
+        <button id="primaryBtn" mat-raised-button color="primary" (click)='openNotesDialog()'>New Note</button>
+      <mat-list id="notes">
           <li *ngFor='let note of notes; let i = index' id='note'>
               <div class="titleDesc">
                   <h4>{{note.note.title}}</h4>
@@ -17,7 +17,7 @@
                 </div>
           </li>
       </mat-list>
-    
+
       <mat-list id="images">
           <li *ngFor='let img of images; let i =index ' id='image'>
               <img  src="{{img.image}}" alt="">
@@ -38,12 +38,12 @@
           <li *ngFor='let audio of audioArray; let i =index '>
 
               <audio  id="audio" controls >
-                  <source id="source" [src]="domSanitizer.bypassSecurityTrustUrl(audio) 
+                  <source id="source" [src]="domSanitizer.bypassSecurityTrustUrl(audio)
                   " type="audio/ogg"/>
               </audio>
           </li>
-          
-      </mat-list>   
+
+      </mat-list>
 </mat-card-content>
 </mat-card>
 

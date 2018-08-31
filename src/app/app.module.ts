@@ -15,9 +15,6 @@ import { MemoryCardsComponent } from './memory-cards/memory-cards.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotesComponent } from './notes/notes.component';
-import { CameraDialogComponent } from './notes/camera-dialog/camera-dialog.component';
-import { AudioDialogComponent } from './notes/audio-dialog/audio-dialog.component';
-import { NotesInputComponent } from './notes/notes-input/notes-input.component';
 import { NotesDialogComponent } from './notes/notes-dialog/notes-dialog.component';
 import { CustomIconService } from './custom-icon.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
@@ -45,15 +42,8 @@ const appRoutes : Routes = [
     SchedulerComponent,
     MenuComponent,
     NotesComponent,
-    CameraDialogComponent,
-    AudioDialogComponent,
-    NotesInputComponent,
     NotesDialogComponent,
     DoneListComponent,
-
-
-
-
 
   ],
   imports: [
@@ -71,6 +61,6 @@ const appRoutes : Routes = [
   ],
   providers: [CustomIconService],
   bootstrap: [AppComponent],
-  entryComponents: [CameraDialogComponent,NotesDialogComponent]
+  entryComponents: [NotesDialogComponent]
 })
 export class AppModule { }
