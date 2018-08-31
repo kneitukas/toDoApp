@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -19,7 +19,7 @@ import { CameraDialogComponent } from './notes/camera-dialog/camera-dialog.compo
 import { AudioDialogComponent } from './notes/audio-dialog/audio-dialog.component';
 import { NotesInputComponent } from './notes/notes-input/notes-input.component';
 import { NotesDialogComponent } from './notes/notes-dialog/notes-dialog.component';
-import { CustomIconService } from './custom-icon.service'
+import { CustomIconService } from './custom-icon.service';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { DoneListComponent } from './to-do/task-list/done-list/done-list.component';
@@ -50,11 +50,11 @@ const appRoutes : Routes = [
     NotesInputComponent,
     NotesDialogComponent,
     DoneListComponent,
-  
-   
 
-  
-   
+
+
+
+
   ],
   imports: [
     HttpClientModule,
@@ -67,7 +67,7 @@ const appRoutes : Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule
-    
+
   ],
   providers: [CustomIconService],
   bootstrap: [AppComponent],
